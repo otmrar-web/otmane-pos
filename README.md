@@ -23,16 +23,18 @@ Ce projet permet de gérer les principales opérations d'un commerce : produits,
 - C#
 - .NET
 - Windows Forms
-- SQL Server
+- SQLite
 - Stripe API
 
 ## 🗄️ Base de données
 
-L'application utilise **SQL Server** pour enregistrer et gérer les données liées aux produits, aux ventes et aux paiements.
+L'application utilise **SQLite** (base locale stockée dans `%LOCALAPPDATA%\OtmanePOS`) pour enregistrer et gérer les données liées aux produits, aux ventes et aux paiements.
 
 ## 💳 Paiements
 
 Intégration de **Stripe** pour tester et gérer différents scénarios de paiement.
+
+La clé secrète Stripe n'est jamais stockée dans le code : elle est saisie dans les paramètres de l'application, puis chiffrée avec **DPAPI** (Windows Data Protection) avant d'être enregistrée. En développement, elle peut aussi être fournie via la variable d'environnement `STRIPE_SECRET_KEY`.
 
 ## 📸 Aperçu
 
